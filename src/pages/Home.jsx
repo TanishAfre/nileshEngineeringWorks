@@ -311,6 +311,7 @@ const Home = () => {
               description="Precision CNC turning and milling services for complex components with tight tolerances across various materials including steel, aluminum, titanium, and plastics."
               imageUrl={CompanyLogo}
               delay={0}
+              link="/services/cnc-machining"
             />
             
             {/* Laser Cutting Service */}

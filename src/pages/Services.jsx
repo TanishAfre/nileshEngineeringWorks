@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const servicesData = [
   {
     title: "CNC Machining",
     description: "Precision CNC turning and milling services with high accuracy and efficiency.",
     details: "Our state-of-the-art CNC machines deliver tolerances within ±0.01mm, handling materials including aluminum, steel, titanium, and various plastics. We specialize in both prototype and production runs with quick turnaround times.",
-    icon: "🔧"
+    icon: "🔧",
+    link: "/services/cnc-machining"
   },
   {
     title: "Grinding Services",
@@ -120,13 +122,25 @@ const Services = () => {
                 >
                   <p className="text-gray-300">{service.details}</p>
                   <div className="mt-6">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="px-6 py-2 bg-[#40B8D3] text-gray-900 font-medium rounded-md shadow-lg hover:bg-opacity-90 transition-all duration-300 w-full"
-                    >
-                      Request Quote
-                    </motion.button>
+                    {service.link ? (
+                      <Link to={service.link}>
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="px-6 py-2 bg-[#40B8D3] text-gray-900 font-medium rounded-md shadow-lg hover:bg-opacity-90 transition-all duration-300 w-full"
+                        >
+                          View Details
+                        </motion.button>
+                      </Link>
+                    ) : (
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-6 py-2 bg-[#40B8D3] text-gray-900 font-medium rounded-md shadow-lg hover:bg-opacity-90 transition-all duration-300 w-full"
+                      >
+                        Request Quote
+                      </motion.button>
+                    )}
                   </div>
                 </motion.div>
               )}
